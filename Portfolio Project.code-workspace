@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../projects.github.io-main/projects.github.io-main/assets"
+		},
+		{
+			"path": "../projects.github.io-main/projects.github.io-main/images"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "Portfolio Project"
+	}
+}
