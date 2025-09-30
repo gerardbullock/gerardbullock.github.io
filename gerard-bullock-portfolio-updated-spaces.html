@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerard Bullock | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; background: #f3f3f3; color: #303841; }
+    header { background: linear-gradient(rgba(33, 133, 213, 0.85), rgba(58, 71, 80, 0.85)), url('/mnt/user-data/uploads/sean-pollock-PhYq704ffdA-unsplash.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: white; text-align: center; padding: 6rem 1rem 5rem; position: relative; overflow: hidden; }
+    header::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: none; opacity: 0.08; }
+    header h1 { font-size: 3.5rem; margin-bottom: 0.5rem; font-weight: 800; position: relative; opacity: 0; animation: fadeInDown 1s forwards; }
+    header p { font-size: 1.25rem; max-width: 650px; margin: 0.5rem auto 2rem; position: relative; opacity: 0; animation: fadeInUp 1s forwards 0.5s; }
+    .cta-buttons { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; position: relative; opacity: 0; animation: fadeInUp 1s forwards 1s; }
+    .cta-buttons a { padding: 0.75rem 1.5rem; border-radius: 30px; font-weight: 600; text-decoration: none; transition: background 0.3s; }
+    .cta-primary { background: #2185d5; color: white; }
+    .cta-primary:hover { background: #1869a8; }
+    .cta-secondary { background: white; color: #2185d5; border: 2px solid #2185d5; }
+    .cta-secondary:hover { background: #f0f8ff; }
+    .skills { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem; position: relative; opacity: 0; animation: fadeInUp 1s forwards 1.5s; }
+    .skill-badge { background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; backdrop-filter: blur(4px); }
+    nav { display: flex; justify-content: center; gap: 2rem; background: white; padding: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+    nav a { text-decoration: none; color: #303841; font-weight: 600; transition: color 0.3s; }
+    nav a:hover { color: #2185d5; }
+    .section { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
+    .section h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; position: relative; }
+    .section h2::after { content: ''; display: block; width: 60px; height: 4px; background: #2185d5; margin: 0.5rem auto 0; border-radius: 2px; }
+    .filter-bar { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .filter-btn { padding: 0.5rem 1rem; border: none; border-radius: 20px; background: #e0e0e0; cursor: pointer; font-weight: 600; transition: background 0.3s; font-family: 'Inter', sans-serif; }
+    .filter-btn.active, .filter-btn:hover { background: #2185d5; color: white; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.3s ease, opacity 0.6s ease; opacity: 0; transform: translateY(20px); }
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .card img { width: 100%; height: 180px; object-fit: cover; background: #f0f0f0; }
+    .card-body { padding: 1.25rem; }
+    .card-body h3 { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.25rem; color: #2185d5; }
+    .card-body p { font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 1rem; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .tag { background: #e8f4fd; color: #2185d5; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+    .about { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; max-width: 900px; margin: 0 auto; }
+    .about-image { flex: 0 0 200px; }
+    .about-image img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .about-content { flex: 1; min-width: 300px; }
+    .about-content p { line-height: 1.8; margin-bottom: 1rem; color: #555; }
+    .about-content ul { list-style: none; padding: 0; margin: 1.5rem 0; }
+    .about-content ul li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+    .about-content ul li::before { content: '▸'; position: absolute; left: 0; color: #2185d5; font-weight: bold; }
+    .contact { text-align: center; padding: 4rem 1rem; background: #3a4750; color: white; }
+    .contact h2 { color: white; }
+    .contact h2::after { background: white; }
+    .contact p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-links a { color: white; text-decoration: none; font-weight: 600; padding: 0.75rem 1.5rem; border: 2px solid white; border-radius: 30px; transition: all 0.3s; }
+    .contact-links a:hover { background: white; color: #3a4750; }
+    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); padding: 2rem; }
+    .modal-content { background: white; margin: 3rem auto; padding: 2rem; border-radius: 1rem; max-width: 700px; position: relative; animation: slideIn 0.3s ease; }
+    .modal-content img { width: 100%; height: 300px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem; }
+    .close { position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; cursor: pointer; color: #555; font-weight: bold; transition: color 0.3s; }
+    .close:hover { color: #2185d5; }
+    footer { background: #303841; color: white; text-align: center; padding: 2rem; font-size: 0.9rem; }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .about { flex-direction: column; text-align: center; }
+      .about-image { margin: 0 auto; }
+      .cta-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gerard Bullock</h1>
+    <p>Data Analyst & Business Intelligence Specialist — transforming raw data into actionable insights through clean, effective solutions.</p>
+    <div class="cta-buttons">
+      <a href="#projects" class="cta-primary">View My Work</a>
+      <a href="#contact" class="cta-secondary">Let's Connect</a>
+    </div>
+    <div class="skills">
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">Tableau</span>
+      <span class="skill-badge">Power BI</span>
+      <span class="skill-badge">SQL</span>
+      <span class="skill-badge">Machine Learning</span>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="tableau">Tableau</button>
+      <button class="filter-btn" data-filter="python">Python</button>
+      <button class="filter-btn" data-filter="powerbi">Power BI</button>
+      <button class="filter-btn" data-filter="sql">SQL</button>
+      <button class="filter-btn" data-filter="apps">Apps</button>
+    </div>
+    <div class="grid" id="projectsGrid">
+      <!-- Project 1 -->
+      <div class="card" data-category="tableau powerbi">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=180&fit=crop" alt="Sales Dashboard">
+        <div class="card-body">
+          <h3>Sales Performance Dashboard</h3>
+          <p>Interactive dashboard tracking KPIs, revenue trends, and regional performance with drill-down capabilities for executive decision-making.</p>
+          <div class="tags">
+            <span class="tag">Tableau</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card" data-category="python">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=180&fit=crop" alt="Customer Churn Analysis">
+        <div class="card-body">
+          <h3>Customer Churn Prediction</h3>
+          <p>Machine learning model predicting customer churn with 87% accuracy using Python, enabling proactive retention strategies.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card" data-category="sql python">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=180&fit=crop" alt="Marketing Analytics">
+        <div class="card-body">
+          <h3>Marketing Campaign ROI Analysis</h3>
+          <p>Comprehensive analysis of multi-channel marketing campaigns, identifying top-performing channels and optimizing budget allocation.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Excel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card" data-category="tableau">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=180&fit=crop" alt="Financial Dashboard">
+        <div class="card-body">
+          <h3>Financial Performance Tracker</h3>
+          <p>Real-time financial dashboard monitoring P&L, cash flow, and budget variance with automated alerts for anomaly detection.</p>
+          <div class="tags">
+            <span class="tag">Tableau</span>
+            <span class="tag">SQL</span>
+            <span class="tag">ETL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="card" data-category="python">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=180&fit=crop" alt="Inventory Optimization">
+        <div class="card-body">
+          <h3>Inventory Optimization Model</h3>
+          <p>Predictive model forecasting demand patterns and optimizing stock levels, reducing holding costs by 23% while maintaining service levels.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">Forecasting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="card" data-category="powerbi sql">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=180&fit=crop" alt="HR Analytics">
+        <div class="card-body">
+          <h3>HR Analytics & Workforce Planning</h3>
+          <p>Employee performance and retention dashboard providing insights into hiring trends, turnover rates, and departmental efficiency.</p>
+          <div class="tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">SQL</span>
+            <span class="tag">DAX</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 1: Smart Data Cleaner -->
+      <div class="card" data-category="apps python" onclick="window.location.href='smart-data-cleaner.html'" style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=180&fit=crop" alt="Data Cleaner App">
+        <div class="card-body">
+          <h3>🧹 Smart Data Cleaner</h3>
+          <p>Interactive web app that automatically detects and fixes common data quality issues. Upload messy CSV files and get cleaned data instantly.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">React</span>
+            <span class="tag">pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 2: Sales Dashboard Generator -->
+      <div class="card" data-category="apps python tableau" onclick="window.location.href='sales-dashboard-generator.html'" style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=180&fit=crop" alt="Sales Dashboard App">
+        <div class="card-body">
+          <h3>📊 Sales Dashboard Generator</h3>
+          <p>Upload your sales data and generate beautiful interactive dashboards instantly. Perfect for small businesses tracking KPIs and revenue trends.</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Plotly</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 3: Customer Segmentation Tool -->
+      <div class="card" data-category="apps python" onclick="window.location.href='customer-segmentation-tool.html'" style="cursor: pointer;">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=180&fit=crop" alt="Customer Segmentation App">
+        <div class="card-body">
+          <h3>🎯 Customer Segmentation Tool</h3>
+          <p>Machine learning-powered app that automatically segments customers based on behavior and provides actionable marketing insights.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about">
+      <div class="about-image">
+        <img src="images/MBA%20PHOTO.jpeg" alt="Gerard Bullock">
+      </div>
+      <div class="about-content">
+        <p>I'm a data analyst with a passion for turning complex datasets into clear, actionable insights that drive business growth. With over 5 years of experience in business intelligence and analytics, I specialize in building scalable data solutions that empower organizations to make data-driven decisions.</p>
+        
+        <p>My approach combines technical expertise with strong business acumen, allowing me to bridge the gap between data science and strategic decision-making. I thrive on challenging problems and take pride in delivering solutions that are both innovative and practical.</p>
+
+        <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #2185d5;">Core Competencies</h3>
+        <ul>
+          <li>Data Visualization & Dashboard Development (Tableau, Power BI)</li>
+          <li>Statistical Analysis & Predictive Modeling (Python, R)</li>
+          <li>Database Management & Query Optimization (SQL, PostgreSQL)</li>
+          <li>ETL Pipeline Development & Data Warehousing</li>
+          <li>Business Intelligence Strategy & KPI Design</li>
+          <li>Machine Learning & Advanced Analytics</li>
+        </ul>
+
+        <p style="margin-top: 1.5rem;">When I'm not analyzing data, you can find me contributing to open-source projects, mentoring aspiring data analysts, or exploring the latest developments in AI and machine learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let's Work Together</h2>
+    <p>I'm always interested in hearing about new projects and opportunities. Whether you need help with a data challenge, want to discuss business intelligence strategies, or just want to connect, feel free to reach out.</p>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com">Email Me</a>
+      <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+      <a href="https://github.com/your-username" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gerard Bullock. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for project details -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="Project">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div id="modalTags" class="tags"></div>
+    </div>
+  </div>
+
+  <script>
+    // Animate cards with staggered delay when they enter viewport
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 150);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category.includes(filter)) {
+            card.style.display = 'block';
+            setTimeout(() => card.classList.add('visible'), 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Modal functionality
+    const modal = document.getElementById('projectModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalTags = document.getElementById('modalTags');
+    const closeBtn = document.querySelector('.close');
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't open modal for app cards (they have onclick navigation)
+        if (card.dataset.category && card.dataset.category.includes('apps')) {
+          return;
+        }
+        
+        const img = card.querySelector('img').src;
+        const title = card.querySelector('h3').textContent;
+        const description = card.querySelector('p').textContent;
+        const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent);
+
+        modalImage.src = img;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalTags.innerHTML = tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+        modal.style.display = 'block';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a, .cta-buttons a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
