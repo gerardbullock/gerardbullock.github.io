@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gerard Bullock - Data Analyst & Business Intelligence Specialist. Transforming raw data into actionable insights through Python, Tableau, Power BI, and SQL." />
+  <meta name="keywords" content="Data Analyst, Business Intelligence, Tableau, Power BI, Python, SQL, Machine Learning" />
+  <meta name="author" content="Gerard Bullock" />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gerard Bullock | Data Analyst Portfolio" />
+  <meta property="og:description" content="Transforming raw data into actionable insights through clean, effective solutions." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gerard Bullock | Data Analyst Portfolio" />
+  <meta name="twitter:description" content="Transforming raw data into actionable insights through clean, effective solutions." />
+  
+  <title>Gerard Bullock | Data Analyst Portfolio</title>
+  
+  <!-- Preconnect to external domains for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * { box-sizing: border-box; }
+    
+    body { 
+      margin: 0; 
+      font-family: 'Inter', sans-serif; 
+      background: #f3f3f3; 
+      color: #303841;
+      line-height: 1.6;
+    }
+    
+    /* Skip to main content link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #2185d5;
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    
+    header { 
+      background: linear-gradient(rgba(33, 133, 213, 0.85), rgba(58, 71, 80, 0.85)), 
+                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&q=80'); 
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: fixed; 
+      color: white; 
+      text-align: center; 
+      padding: 6rem 1rem 5rem; 
+      position: relative; 
+      overflow: hidden;
+    }
+    
+    header::before { 
+      content: ""; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: none; 
+      opacity: 0.08;
+    }
+    
+    header h1 { 
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 0.5rem; 
+      font-weight: 800; 
+      position: relative; 
+      opacity: 0; 
+      animation: fadeInDown 1s forwards;
+    }
+    
+    header p { 
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      max-width: 650px; 
+      margin: 0.5rem auto 2rem; 
+      position: relative; 
+      opacity: 0; 
+      animation: fadeInUp 1s forwards 0.5s;
+    }
+    
+    .cta-buttons { 
+      display: flex; 
+      justify-content: center; 
+      gap: 1rem; 
+      margin-top: 1.5rem; 
+      position: relative; 
+      opacity: 0; 
+      animation: fadeInUp 1s forwards 1s;
+      flex-wrap: wrap;
+    }
+    
+    .cta-buttons a { 
+      padding: 0.75rem 1.5rem; 
+      border-radius: 30px; 
+      font-weight: 600; 
+      text-decoration: none; 
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .cta-buttons a:focus {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+    
+    .cta-primary { 
+      background: #2185d5; 
+      color: white;
+    }
+    
+    .cta-primary:hover, .cta-primary:focus { 
+      background: #1869a8;
+      transform: translateY(-2px);
+    }
+    
+    .cta-secondary { 
+      background: white; 
+      color: #2185d5; 
+      border: 2px solid #2185d5;
+    }
+    
+    .cta-secondary:hover, .cta-secondary:focus { 
+      background: #f0f8ff;
+      transform: translateY(-2px);
+    }
+    
+    .skills { 
+      display: flex; 
+      justify-content: center; 
+      gap: 1.5rem; 
+      flex-wrap: wrap; 
+      margin-top: 2.5rem; 
+      position: relative; 
+      opacity: 0; 
+      animation: fadeInUp 1s forwards 1.5s;
+    }
+    
+    .skill-badge { 
+      background: rgba(255,255,255,0.15); 
+      padding: 0.5rem 1rem; 
+      border-radius: 20px; 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      backdrop-filter: blur(4px);
+    }
+    
+    nav { 
+      display: flex; 
+      justify-content: center; 
+      gap: 2rem; 
+      background: white; 
+      padding: 1rem; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+    }
+    
+    nav a { 
+      text-decoration: none; 
+      color: #303841; 
+      font-weight: 600; 
+      transition: color 0.3s;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    
+    nav a:hover { 
+      color: #2185d5;
+    }
+    
+    nav a:focus {
+      outline: 2px solid #2185d5;
+      outline-offset: 2px;
+    }
+    
+    .section { 
+      max-width: 1100px; 
+      margin: 4rem auto; 
+      padding: 0 1rem;
+    }
+    
+    .section h2 { 
+      font-size: clamp(1.75rem, 4vw, 2rem);
+      margin-bottom: 2rem; 
+      text-align: center; 
+      position: relative;
+    }
+    
+    .section h2::after { 
+      content: ''; 
+      display: block; 
+      width: 60px; 
+      height: 4px; 
+      background: #2185d5; 
+      margin: 0.5rem auto 0; 
+      border-radius: 2px;
+    }
+    
+    .filter-bar { 
+      display: flex; 
+      justify-content: center; 
+      gap: 1rem; 
+      margin-bottom: 2rem; 
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn { 
+      padding: 0.5rem 1rem; 
+      border: 2px solid #e0e0e0;
+      border-radius: 20px; 
+      background: white;
+      cursor: pointer; 
+      font-weight: 600; 
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+    
+    .filter-btn.active { 
+      background: #2185d5; 
+      color: white;
+      border-color: #2185d5;
+    }
+    
+    .filter-btn:hover {
+      border-color: #2185d5;
+      color: #2185d5;
+    }
+    
+    .filter-btn.active:hover {
+      color: white;
+    }
+    
+    .filter-btn:focus {
+      outline: 2px solid #2185d5;
+      outline-offset: 2px;
+    }
+    
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 2rem;
+    }
+    
+    .card { 
+      background: white; 
+      border-radius: 1rem; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+      overflow: hidden; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+      cursor: pointer; 
+      opacity: 0; 
+      transform: translateY(20px);
+      will-change: transform;
+    }
+    
+    .card.visible { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+    
+    .card:hover, .card:focus-within { 
+      transform: translateY(-6px); 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    
+    .card:focus {
+      outline: 3px solid #2185d5;
+      outline-offset: 2px;
+    }
+    
+    .card img { 
+      width: 100%; 
+      height: 180px; 
+      object-fit: cover; 
+      background: #f0f0f0;
+      display: block;
+    }
+    
+    .card img.loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+    
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    
+    .card-body { 
+      padding: 1.25rem;
+    }
+    
+    .card-body h3 { 
+      margin-top: 0; 
+      margin-bottom: 0.5rem; 
+      font-size: 1.25rem; 
+      color: #2185d5;
+    }
+    
+    .card-body p { 
+      font-size: 0.95rem; 
+      color: #555; 
+      line-height: 1.6; 
+      margin-bottom: 1rem;
+    }
+    
+    .tags { 
+      display: flex; 
+      gap: 0.5rem; 
+      flex-wrap: wrap; 
+      margin-top: 1rem;
+    }
+    
+    .tag { 
+      background: #e8f4fd; 
+      color: #2185d5; 
+      padding: 0.25rem 0.75rem; 
+      border-radius: 12px; 
+      font-size: 0.8rem; 
+      font-weight: 600;
+    }
+    
+    .about { 
+      display: flex; 
+      flex-wrap: wrap; 
+      align-items: center; 
+      gap: 3rem; 
+      max-width: 900px; 
+      margin: 0 auto;
+    }
+    
+    .about-image { 
+      flex: 0 0 200px;
+    }
+    
+    .about-image img { 
+      width: 200px; 
+      height: 200px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .about-content { 
+      flex: 1; 
+      min-width: 300px;
+    }
+    
+    .about-content p { 
+      line-height: 1.8; 
+      margin-bottom: 1rem; 
+      color: #555;
+    }
+    
+    .about-content ul { 
+      list-style: none; 
+      padding: 0; 
+      margin: 1.5rem 0;
+    }
+    
+    .about-content ul li { 
+      padding: 0.5rem 0; 
+      padding-left: 1.5rem; 
+      position: relative;
+    }
+    
+    .about-content ul li::before { 
+      content: '▸'; 
+      position: absolute; 
+      left: 0; 
+      color: #2185d5; 
+      font-weight: bold;
+    }
+    
+    .contact { 
+      text-align: center; 
+      padding: 4rem 1rem; 
+      background: #3a4750; 
+      color: white;
+    }
+    
+    .contact h2 { 
+      color: white;
+    }
+    
+    .contact h2::after { 
+      background: white;
+    }
+    
+    .contact p { 
+      font-size: 1.1rem; 
+      margin-bottom: 2rem; 
+      max-width: 600px; 
+      margin-left: auto; 
+      margin-right: auto;
+    }
+    
+    .contact-links { 
+      display: flex; 
+      justify-content: center; 
+      gap: 2rem; 
+      flex-wrap: wrap; 
+      margin-top: 2rem;
+    }
+    
+    .contact-links a { 
+      color: white; 
+      text-decoration: none; 
+      font-weight: 600; 
+      padding: 0.75rem 1.5rem; 
+      border: 2px solid white; 
+      border-radius: 30px; 
+      transition: all 0.3s;
+    }
+    
+    .contact-links a:hover, .contact-links a:focus { 
+      background: white; 
+      color: #3a4750;
+      transform: translateY(-2px);
+    }
+    
+    .contact-links a:focus {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+    
+    .modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.7); 
+      padding: 2rem;
+    }
+    
+    .modal-content { 
+      background: white; 
+      margin: 3rem auto; 
+      padding: 2rem; 
+      border-radius: 1rem; 
+      max-width: 700px; 
+      position: relative; 
+      animation: slideIn 0.3s ease;
+    }
+    
+    .modal-content img { 
+      width: 100%; 
+      height: 300px; 
+      object-fit: cover; 
+      border-radius: 0.5rem; 
+      margin-bottom: 1.5rem;
+    }
+    
+    .close { 
+      position: absolute; 
+      top: 1rem; 
+      right: 1.5rem; 
+      font-size: 2rem; 
+      cursor: pointer; 
+      color: #555; 
+      font-weight: bold; 
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      line-height: 1;
+    }
+    
+    .close:hover, .close:focus { 
+      color: #2185d5;
+    }
+    
+    .close:focus {
+      outline: 2px solid #2185d5;
+      outline-offset: 2px;
+    }
+    
+    footer { 
+      background: #303841; 
+      color: white; 
+      text-align: center; 
+      padding: 2rem; 
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header { 
+        padding: 4rem 1rem 3rem;
+        background-attachment: scroll;
+      }
+      
+      .about { 
+        flex-direction: column; 
+        text-align: center;
+      }
+      
+      .about-image { 
+        margin: 0 auto;
+      }
+      
+      nav {
+        gap: 1rem;
+        padding: 0.75rem;
+      }
+      
+      nav a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Print styles */
+    @media print {
+      header { background: #2185d5; padding: 2rem 1rem; }
+      nav { position: relative; }
+      .modal, .filter-bar { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <h1>Gerard Bullock</h1>
+    <p>Data Analyst & Business Intelligence Specialist — transforming raw data into actionable insights through clean, effective solutions.</p>
+    <div class="cta-buttons">
+      <a href="#projects" class="cta-primary" aria-label="View my work and projects">View My Work</a>
+      <a href="#contact" class="cta-secondary" aria-label="Contact me">Let's Connect</a>
+    </div>
+    <div class="skills" role="list" aria-label="Technical skills">
+      <span class="skill-badge" role="listitem">Python</span>
+      <span class="skill-badge" role="listitem">Tableau</span>
+      <span class="skill-badge" role="listitem">Power BI</span>
+      <span class="skill-badge" role="listitem">SQL</span>
+      <span class="skill-badge" role="listitem">Machine Learning</span>
+    </div>
+  </header>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="main-content">
+    <section id="projects" class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="filter-bar" role="group" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all" aria-label="Show all projects" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="tableau" aria-label="Show Tableau projects" aria-pressed="false">Tableau</button>
+        <button class="filter-btn" data-filter="python" aria-label="Show Python projects" aria-pressed="false">Python</button>
+        <button class="filter-btn" data-filter="powerbi" aria-label="Show Power BI projects" aria-pressed="false">Power BI</button>
+        <button class="filter-btn" data-filter="sql" aria-label="Show SQL projects" aria-pressed="false">SQL</button>
+      </div>
+      <div class="grid" id="projectsGrid" role="list" aria-label="Project cards">
+        <!-- Project 1 -->
+        <article class="card" data-category="tableau powerbi" role="listitem" tabindex="0" aria-label="Sales Performance Dashboard project">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=180&fit=crop&q=80" alt="Analytics dashboard showing sales performance metrics and charts" loading="lazy">
+          <div class="card-body">
+            <h3>Sales Performance Dashboard</h3>
+            <p>Interactive dashboard tracking KPIs, revenue trends, and regional performance with drill-down capabilities for executive decision-making.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">Tableau</span>
+              <span class="tag" role="listitem">Power BI</span>
+              <span class="tag" role="listitem">SQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card" data-category="python" role="listitem" tabindex="0" aria-label="Customer Churn Prediction project">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=180&fit=crop&q=80" alt="Data visualization showing customer retention analysis" loading="lazy">
+          <div class="card-body">
+            <h3>Customer Churn Prediction</h3>
+            <p>Machine learning model predicting customer churn with 87% accuracy using Python, enabling proactive retention strategies.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">Python</span>
+              <span class="tag" role="listitem">scikit-learn</span>
+              <span class="tag" role="listitem">pandas</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card" data-category="sql python" role="listitem" tabindex="0" aria-label="Marketing Campaign ROI Analysis project">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=180&fit=crop&q=80" alt="Marketing analytics dashboard with campaign performance data" loading="lazy">
+          <div class="card-body">
+            <h3>Marketing Campaign ROI Analysis</h3>
+            <p>Comprehensive analysis of multi-channel marketing campaigns, identifying top-performing channels and optimizing budget allocation.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">Python</span>
+              <span class="tag" role="listitem">SQL</span>
+              <span class="tag" role="listitem">Excel</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card" data-category="tableau" role="listitem" tabindex="0" aria-label="Financial Performance Tracker project">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=180&fit=crop&q=80" alt="Financial dashboard displaying profit and loss statements" loading="lazy">
+          <div class="card-body">
+            <h3>Financial Performance Tracker</h3>
+            <p>Real-time financial dashboard monitoring P&L, cash flow, and budget variance with automated alerts for anomaly detection.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">Tableau</span>
+              <span class="tag" role="listitem">SQL</span>
+              <span class="tag" role="listitem">ETL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="card" data-category="python" role="listitem" tabindex="0" aria-label="Inventory Optimization Model project">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=180&fit=crop&q=80" alt="Inventory management system interface with stock level indicators" loading="lazy">
+          <div class="card-body">
+            <h3>Inventory Optimization Model</h3>
+            <p>Predictive model forecasting demand patterns and optimizing stock levels, reducing holding costs by 23% while maintaining service levels.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">Python</span>
+              <span class="tag" role="listitem">Time Series</span>
+              <span class="tag" role="listitem">Forecasting</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="card" data-category="powerbi sql" role="listitem" tabindex="0" aria-label="HR Analytics and Workforce Planning project">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=180&fit=crop&q=80" alt="Human resources analytics dashboard showing workforce metrics" loading="lazy">
+          <div class="card-body">
+            <h3>HR Analytics & Workforce Planning</h3>
+            <p>Employee performance and retention dashboard providing insights into hiring trends, turnover rates, and departmental efficiency.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">Power BI</span>
+              <span class="tag" role="listitem">SQL</span>
+              <span class="tag" role="listitem">DAX</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <div class="about">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80" alt="Professional headshot of Gerard Bullock" loading="lazy">
+        </div>
+        <div class="about-content">
+          <p>I'm a data analyst with a passion for turning complex datasets into clear, actionable insights that drive business growth. With over 5 years of experience in business intelligence and analytics, I specialize in building scalable data solutions that empower organizations to make data-driven decisions.</p>
+          
+          <p>My approach combines technical expertise with strong business acumen, allowing me to bridge the gap between data science and strategic decision-making. I thrive on challenging problems and take pride in delivering solutions that are both innovative and practical.</p>
+
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #2185d5;">Core Competencies</h3>
+          <ul>
+            <li>Data Visualization & Dashboard Development (Tableau, Power BI)</li>
+            <li>Statistical Analysis & Predictive Modeling (Python, R)</li>
+            <li>Database Management & Query Optimization (SQL, PostgreSQL)</li>
+            <li>ETL Pipeline Development & Data Warehousing</li>
+            <li>Business Intelligence Strategy & KPI Design</li>
+            <li>Machine Learning & Advanced Analytics</li>
+          </ul>
+
+          <p style="margin-top: 1.5rem;">When I'm not analyzing data, you can find me contributing to open-source projects, mentoring aspiring data analysts, or exploring the latest developments in AI and machine learning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Let's Work Together</h2>
+      <p>I'm always interested in hearing about new projects and opportunities. Whether you need help with a data challenge, want to discuss business intelligence strategies, or just want to connect, feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="mailto:gerard.bullock@example.com" aria-label="Send me an email">Email Me</a>
+        <a href="https://linkedin.com/in/gerardbullock" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile (opens in new tab)">LinkedIn</a>
+        <a href="https://github.com/gerardbullock" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile (opens in new tab)">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Gerard Bullock. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for project details -->
+  <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+    <div class="modal-content">
+      <button class="close" aria-label="Close modal">&times;</button>
+      <img id="modalImage" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div id="modalTags" class="tags"></div>
+    </div>
+  </div>
+
+  <script>
+    // Animate cards with staggered delay when they enter viewport
+    const cards = document.querySelectorAll('.card');
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 150);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+
+    // Lazy loading for images with loading state
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.classList.add('loading');
+      img.addEventListener('load', () => {
+        img.classList.remove('loading');
+      });
+    });
+
+    // Filter functionality with ARIA updates
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        
+        // Update ARIA states
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        // Filter cards
+        let visibleCount = 0;
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category.includes(filter)) {
+            card.style.display = 'block';
+            card.setAttribute('aria-hidden', 'false');
+            setTimeout(() => card.classList.add('visible'), 10);
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+            card.setAttribute('aria-hidden', 'true');
+            card.classList.remove('visible');
+          }
+        });
+
+        // Announce filter result to screen readers
+        const announcement = `Showing ${visibleCount} ${filter === 'all' ? '' : filter} project${visibleCount !== 1 ? 's' : ''}`;
+        announceToScreenReader(announcement);
+      });
+    });
+
+    // Screen reader announcements
+    function announceToScreenReader(message) {
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'sr-only';
+      announcement.textContent = message;
+      announcement.style.position = 'absolute';
+      announcement.style.left = '-10000px';
+      announcement.style.width = '1px';
+      announcement.style.height = '1px';
+      announcement.style.overflow = 'hidden';
+      document.body.appendChild(announcement);
+      setTimeout(() => document.body.removeChild(announcement), 1000);
+    }
+
+    // Modal functionality
+    const modal = document.getElementById('projectModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalTags = document.getElementById('modalTags');
+    const closeBtn = document.querySelector('.close');
+
+    function openModal(card) {
+      const img = card.querySelector('img').src;
+      const imgAlt = card.querySelector('img').alt;
+      const title = card.querySelector('h3').textContent;
+      const description = card.querySelector('p').textContent;
+      const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent);
+
+      modalImage.src = img;
+      modalImage.alt = imgAlt;
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modalTags.innerHTML = tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      closeBtn.focus(); // Move focus to close button for accessibility
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Open modal on click or Enter/Space key
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+      
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(card);
+        }
+      });
+    });
+
+    // Close modal
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on background click
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#') return;
+        
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+          
+          // Move focus to section for screen readers
+          targetSection.setAttribute('tabindex', '-1');
+          targetSection.focus();
+          targetSection.removeAttribute('tabindex');
+        }
+      });
+    });
+
+    // Add reduced motion support check
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // User prefers reduced motion - animations are already disabled via CSS
+      console.log('Reduced motion preference detected');
+    }
+  </script>
+</body>
+</html>
