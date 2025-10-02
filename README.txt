@@ -1,5 +1,4 @@
-Gerard Bullock
-gbullock@thesitegenius.com | @thesitegenius.com
+
 # 🔗 Guide: Connecting Your Portfolio to GitHub
 
 ## ✅ What I Just Did
@@ -284,3 +283,4 @@ Common requests:
 - "Create sample GitHub repos"
 
 Just ask and I'll help you implement it!
+
