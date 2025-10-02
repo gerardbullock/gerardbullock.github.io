@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Gerard Bullock - Data Analyst & Business Intelligence Specialist. Transforming raw data into actionable insights through Python, Tableau, Power BI, and SQL." />
-  <meta name="keywords" content="Data Analyst, Business Intelligence, Tableau, Power BI, Python, SQL, Machine Learning" />
+  <meta name="keywords" content="Data Analyst, Business Intelligence, Tableau, Power BI, Python, SQL, Machine Learning, Web Design" />
   <meta name="author" content="Gerard Bullock" />
   
   <!-- Open Graph / Social Media Meta Tags -->
@@ -599,6 +599,7 @@
         <button class="filter-btn" data-filter="python" aria-label="Show Python projects" aria-pressed="false">Python</button>
         <button class="filter-btn" data-filter="powerbi" aria-label="Show Power BI projects" aria-pressed="false">Power BI</button>
         <button class="filter-btn" data-filter="sql" aria-label="Show SQL projects" aria-pressed="false">SQL</button>
+        <button class="filter-btn" data-filter="html" aria-label="Show Web Design projects" aria-pressed="false">Web Design</button>
       </div>
       <div class="grid" id="projectsGrid" role="list" aria-label="Project cards">
         <!-- Project 1 -->
@@ -712,6 +713,21 @@
             </div>
           </div>
         </article>
+
+        <!-- Project 7: Web Design -->
+        <article class="card" data-category="html css" role="listitem" tabindex="0" aria-label="Interactive Analytics Dashboard Web Design project">
+          <img src="data:image/png;base64,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" alt="Modern web design with responsive layout and clean interface" loading="lazy">
+          <div class="card-body">
+            <h3>Interactive Analytics Dashboard Design</h3>
+            <p>Modern, responsive web interface for data visualization platform featuring intuitive UX, dark/light mode themes, and mobile-first design principles.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">HTML5</span>
+              <span class="tag" role="listitem">CSS3</span>
+              <span class="tag" role="listitem">JavaScript</span>
+              <span class="tag" role="listitem">Responsive Design</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -749,7 +765,7 @@
       <h2 id="contact-heading">Let's Work Together</h2>
       <p>I'm always interested in hearing about new projects and opportunities. Whether you need help with a data challenge, want to discuss business intelligence strategies, or just want to connect, feel free to reach out.</p>
       <div class="contact-links">
-        <a href="mailto:gerard.bullock@example.com" aria-label="Send me an email">Email Me</a>
+        <a href="mailto:gerardbullock@ymail.com" aria-label="Send me an email">Email Me</a>
         <a href="https://linkedin.com/in/gerardbullock" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile (opens in new tab)">LinkedIn</a>
         <a href="https://github.com/gerardbullock" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile (opens in new tab)">GitHub</a>
       </div>
