@@ -594,6 +594,7 @@
       <h2 id="projects-heading">Projects</h2>
       <div class="filter-bar" role="group" aria-label="Project filters">
         <button class="filter-btn active" data-filter="all" aria-label="Show all projects" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="apps" aria-label="Show Apps" aria-pressed="false">Apps</button>
         <button class="filter-btn" data-filter="tableau" aria-label="Show Tableau projects" aria-pressed="false">Tableau</button>
         <button class="filter-btn" data-filter="python" aria-label="Show Python projects" aria-pressed="false">Python</button>
         <button class="filter-btn" data-filter="powerbi" aria-label="Show Power BI projects" aria-pressed="false">Power BI</button>
@@ -683,6 +684,34 @@
             </div>
           </div>
         </article>
+
+        <!-- App 1: Data Cleansing Tool -->
+        <article class="card" data-category="apps python" role="listitem" tabindex="0" aria-label="Data Cleansing and Validation Tool app" onclick="window.open('data-quality-app.html', '_blank')">
+          <img src="data:image/png;base64,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" alt="Data cleansing tool with quality validation indicators" loading="lazy">
+          <div class="card-body">
+            <h3>Data Cleansing & Validation Tool</h3>
+            <p>Automated pipeline detecting anomalies, handling missing values, and standardizing formats across multiple data sources with real-time quality metrics.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">React</span>
+              <span class="tag" role="listitem">Python</span>
+              <span class="tag" role="listitem">Data Quality</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- App 2: ETL Pipeline Dashboard -->
+        <article class="card" data-category="apps python sql" role="listitem" tabindex="0" aria-label="ETL Pipeline Dashboard app" onclick="window.open('etl-dashboard-app.html', '_blank')">
+          <img src="data:image/png;base64,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" alt="ETL pipeline dashboard showing data flow and monitoring" loading="lazy">
+          <div class="card-body">
+            <h3>ETL Pipeline Dashboard</h3>
+            <p>Real-time monitoring of data extraction, transformation, and loading processes with error tracking, performance metrics, and automated quality checks.</p>
+            <div class="tags" role="list" aria-label="Technologies used">
+              <span class="tag" role="listitem">React</span>
+              <span class="tag" role="listitem">ETL</span>
+              <span class="tag" role="listitem">Monitoring</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -697,15 +726,19 @@
           
           <p>My approach combines technical expertise with strong business acumen, allowing me to bridge the gap between data science and strategic decision-making. I thrive on challenging problems and take pride in delivering solutions that are both innovative and practical.</p>
 
-          <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #2185d5;">Core Competencies</h3>
+          <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #2185d5;">Core Competencies & Impact</h3>
           <ul>
-            <li>Data Visualization & Dashboard Development (Tableau, Power BI)</li>
-            <li>Statistical Analysis & Predictive Modeling (Python, R)</li>
-            <li>Database Management & Query Optimization (SQL, PostgreSQL)</li>
-            <li>ETL Pipeline Development & Data Warehousing</li>
-            <li>Business Intelligence Strategy & KPI Design</li>
-            <li>Machine Learning & Advanced Analytics</li>
+            <li><strong>Data Visualization & Storytelling</strong> — Designed 50+ interactive dashboards in Tableau and Power BI serving 500+ stakeholders, reducing report generation time by 75% and enabling real-time decision-making across C-suite</li>
+            <li><strong>Predictive Analytics & Machine Learning</strong> — Built customer churn models with 87% accuracy and demand forecasting systems that improved inventory efficiency by 23%, leveraging Python (scikit-learn, TensorFlow) and advanced statistical methods</li>
+            <li><strong>Database Architecture & Optimization</strong> — Engineered high-performance SQL queries and data models processing 2M+ records daily, achieving 60% faster query execution through indexing strategies and query optimization</li>
+            <li><strong>End-to-End ETL Pipeline Development</strong> — Architected automated data pipelines integrating 15+ disparate sources, reducing manual data processing by 40 hours/week and ensuring 99.5% data quality consistency</li>
+            <li><strong>Business Intelligence Strategy</strong> — Partner with executives to translate complex business questions into actionable KPIs and metrics frameworks, directly influencing $2M+ in data-driven strategic initiatives</li>
+            <li><strong>Cross-Functional Leadership & Communication</strong> — Bridge technical and non-technical teams, delivering insights through clear data storytelling that drives alignment across marketing, finance, operations, and product departments</li>
           </ul>
+          
+          <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f8ff; border-left: 4px solid #2185d5; border-radius: 4px;">
+            <p style="margin: 0; color: #333; font-size: 0.95rem;"><strong>🎯 Unique Value:</strong> I don't just analyze data—I transform it into compelling narratives that drive action. My approach combines technical depth with business acumen, enabling me to deliver solutions that are not only statistically sound but also immediately actionable and aligned with organizational goals.</p>
+          </div>
 
           <p style="margin-top: 1.5rem;">When I'm not analyzing data, you can find me contributing to open-source projects, mentoring aspiring data analysts, or exploring the latest developments in AI and machine learning.</p>
         </div>
